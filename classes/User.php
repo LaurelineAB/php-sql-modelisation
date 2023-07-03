@@ -73,10 +73,23 @@ class User {
         $query->execute($parameters);
     }
     
-    public function addRole(PDO $db, User $user, )
-    {
-        
-    }
+    // public function getUserId (PDO $db, string $username) : int
+    // {
+    //     $query = $db->prepare(
+    //     "SELECT users.id FROM users WHERE users.username = :username;");
+    //     $parameters = ['username' => $user];
+    //     $query->execute($parameters);
+    //     $userId = $query->fetch(PDO::FETCH_ASSOC);
+    //     return $userId['id'];
+    // }
+    
+    // public function addRole(PDO $db, string $user, string $role)
+    // {
+    //     $query = $db->prepare(
+    //     "SELECT users.id FROM users WHERE users.username = :username;");
+    //     $parameters = ['email' => $user->getEmail()];
+    //     $query->execute($parameters);
+    // }
     
 }
 

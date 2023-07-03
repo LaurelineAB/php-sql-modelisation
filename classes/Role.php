@@ -1,6 +1,6 @@
 <?php
 
-class PostCategory {
+class Role {
     
     //ATTRIBUTES
     private int $id;
@@ -46,19 +46,23 @@ class PostCategory {
     }
     
     //METHODS
-    public function addCategory(PDO $db, PostCategory $cat) : void
+    public function addRole(PDO $db, Role $role) : void
     {
         $query = $db->prepare(
-        "INSERT INTO post_categories (name, description) 
-        VALUES (?,?);");
-        $query->execute([$cat->getName(), $cat->getDescription()]);
+        "INSERT INTO roles (name, description) 
+        VALUES (:name, :description);");
+        $parameters = [
+            'name' => $role->getName(),
+            'description' => $role->getDescription()];
+        $query->execute($parameters);
     }
     
-    public function removeCategory(PDO $db, PostCategory $cat) : void
+    public function removeRole(PDO $db, Role $role) : void
     {
         $query = $db->prepare(
-        "DELETE FROM post_categories WHERE post_categories.name = :name;");
-        $parameters = ['name' => $cat->getName()];
+        "DELETE FROM roles WHERE roles.name = :name;");
+        $parameters = [
+            'name' => $role->getName()];
         $query->execute($parameters);
     }
 }

@@ -16,7 +16,9 @@ $db = new PDO(
 
 require "User.php";
 require "Page.php";
-require "PostCategory.php";
+require "Post.php";
+require "Role.php";
+require "functions.php";
 
 
 $user = new User("Lau","password","email@test.fr");
@@ -35,13 +37,26 @@ $page->addPage($db, $page);
 $page->removePage($db, $page);
 
 $cat = new PostCategory("Test", "Ceci est un test");
-
 echo "<pre>";
 print_r($cat);
 echo "<pre>";
 $cat->addCategory($db, $cat);
 $cat->removeCategory($db, $cat);
-$catName = "Code";
-$catId = $cat->getCategoryId($db, $catName);
-print_r($catId);
+
+$post = new Post("Titre", "Blabla de contenu");
+echo "<pre>";
+print_r($post);
+echo "<pre>";
+$post->addPost($db, $post, "Gaming");
+$post->removePost($db, $post);
+
+$role = new Role("troll","Quelqu'un qui trolle");
+echo "<pre>";
+print_r($role);
+echo "<pre>";
+$role->addRole($db, $role);
+$role->removeRole($db, $role);
+
+addRole($db,"Test", "Auteur");
+removeRole($db, "Test", "Auteur");
 ?>
