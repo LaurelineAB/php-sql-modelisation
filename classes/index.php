@@ -16,6 +16,7 @@ $db = new PDO(
 
 require "User.php";
 require "Page.php";
+require "PostCategory.php";
 
 
 $user = new User("Lau","password","email@test.fr");
@@ -32,4 +33,15 @@ print_r($page);
 echo "<pre>";
 $page->addPage($db, $page);
 $page->removePage($db, $page);
+
+$cat = new PostCategory("Test", "Ceci est un test");
+
+echo "<pre>";
+print_r($cat);
+echo "<pre>";
+$cat->addCategory($db, $cat);
+$cat->removeCategory($db, $cat);
+$catName = "Code";
+$catId = $cat->getCategoryId($db, $catName);
+print_r($catId);
 ?>

@@ -1,22 +1,18 @@
 <?php
 
-require "PostCategory.php";
-
-class Post {
+class PostCategory {
     
     //ATTRIBUTES
     private int $id;
-    private string $title;
-    private string $content;
-    private int $catId;
+    private string $name;
+    private string $description;
     
     //CONSTRUCTOR
-    public function __construct(string $title, string $content)
+    public function __construct(string $name, string $description)
     {
         $this->id = -1;
-        $this->title = $title;
-        $this->content = $content;
-        $this->catId = -1;
+        $this->name = $name;
+        $this->description = $description;
     }
     
     //ID
@@ -24,39 +20,29 @@ class Post {
     {
         return $this->id;
     }
-    public function setId (int $id) : void
+    public function setId(int $id) : void
     {
         $this->id = $id;
     }
     
-    //TITLE
-    public function getTitle() : string
+    //NAME
+    public function getName() : string
     {
-        return $this->title;
+        return $this->name;
     }
-    public function setTitle (string $title) : void
+    public function setName(string $name) : void
     {
-        $this->title = $title;
-    }
-    
-    //ID
-    public function getContent() : string
-    {
-        return $this->content;
-    }
-    public function setContent (string $content) : void
-    {
-        $this->content = $content;
+        $this->name = $name;
     }
     
-    //ID
-    public function getCatId() : int
+    //DESCRIPTION
+    public function getDescription() : string
     {
-        return $this->catId;
+        return $this->description;
     }
-    public function setCatId (int $catId) : void
+    public function setDescription(string $description) : void
     {
-        $this->catId = $catId;
+        $this->description = $description;
     }
     
     //METHODS
@@ -85,6 +71,7 @@ class Post {
         $catId = $query->fetch(PDO::FETCH_ASSOC);
         // print_r($catId);
         return $catId['id'];
+    }
 }
 
 ?>

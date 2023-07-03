@@ -23,7 +23,7 @@ class Page {
     {
         return $this->id;
     }
-    public function setId($id) : void
+    public function setId(int $id) : void
     {
         $this->id = $id;
     }
@@ -33,7 +33,7 @@ class Page {
     {
         return $this->name;
     }
-    public function setName($name) : void
+    public function setName(string $name) : void
     {
         $this->name = $name;
     }
@@ -43,7 +43,7 @@ class Page {
     {
         return $this->title;
     }
-    public function setTitle($title) : void
+    public function setTitle(string $title) : void
     {
         $this->title = $title;
     }
@@ -53,7 +53,7 @@ class Page {
     {
         return $this->content;
     }
-    public function setContent($content) : void
+    public function setContent(string $content) : void
     {
         $this->content = $content;
     }
@@ -63,7 +63,7 @@ class Page {
     {
         return $this->route;
     }
-    public function setRoute($route) : void
+    public function setRoute(string $route) : void
     {
         $this->route = $route;
     }
