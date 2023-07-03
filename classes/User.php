@@ -73,6 +73,7 @@ class User {
         $query->execute($parameters);
     }
     
+    
     // public function getUserId (PDO $db, string $username) : int
     // {
     //     $query = $db->prepare(

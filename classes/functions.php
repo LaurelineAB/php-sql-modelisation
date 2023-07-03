@@ -1,14 +1,14 @@
 <?php
 
-    // function getCategoryId(PDO $db, string $catName) : int
-    // {
+    function getCategoryId(PDO $db, string $catName) : int
+    {
         
-    //     $query = $db->prepare(
-    //     "SELECT post_categories.id FROM post_categories WHERE post_categories.name = ? ");
-    //     $query->execute([$catName]);
-    //     $catId = $query->fetch(PDO::FETCH_ASSOC);
-    //     return $catId['id'];
-    // }
+        $query = $db->prepare(
+        "SELECT post_categories.id FROM post_categories WHERE post_categories.name = ? ");
+        $query->execute([$catName]);
+        $catId = $query->fetch(PDO::FETCH_ASSOC);
+        return $catId['id'];
+    }
 
     function getUserId (PDO $db, string $username) : int
     {
@@ -30,7 +30,7 @@
         return $roleId['id'];
     }
     
-    function addRole(PDO $db, string $user, string $role)
+    function addRole(PDO $db, string $user, string $role) : void
     {
         $query = $db->prepare(
         "INSERT INTO users_roles (user_id, role_id)
@@ -41,7 +41,7 @@
         $query->execute($parameters);
     }
     
-    function removeRole(PDO $db, string $user, string $role)
+    function removeRole(PDO $db, string $user, string $role) : void
     {
         $query = $db->prepare(
         "DELETE FROM users_roles WHERE user_id = :userId AND role_id = :roleId;");
@@ -50,5 +50,15 @@
             'roleId' => getRoleId($db, $role)];
         $query->execute($parameters);
     }
+    
+    function getAllUsers(PDO $db)
+    {
+        $query = $db->prepare("SELECT * FROM users;");
+        $query->execute();
+        $users = $query->fetchAll(PDO::FETCH_ASSOC);
+        return $users;
+    }
+    
+    
 
 ?>

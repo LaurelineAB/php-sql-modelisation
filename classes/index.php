@@ -26,37 +26,41 @@ echo "<pre>";
 print_r($user);
 echo "<pre>";
 
-$user->addUser($db, $user);
-$user->removeUser($db, $user);
+// $user->addUser($db, $user);
+// $user->removeUser($db, $user);
 
 $page = new Page("test", "Test", "Test Lorem Ipsum", "testpage");
 echo "<pre>";
 print_r($page);
 echo "<pre>";
-$page->addPage($db, $page);
-$page->removePage($db, $page);
+// $page->addPage($db, $page);
+// $page->removePage($db, $page);
 
 $cat = new PostCategory("Test", "Ceci est un test");
 echo "<pre>";
 print_r($cat);
 echo "<pre>";
-$cat->addCategory($db, $cat);
-$cat->removeCategory($db, $cat);
+// $cat->addCategory($db, $cat);
+// $cat->removeCategory($db, $cat);
 
 $post = new Post("Titre", "Blabla de contenu");
 echo "<pre>";
 print_r($post);
 echo "<pre>";
-$post->addPost($db, $post, "Gaming");
-$post->removePost($db, $post);
+// $post->addPost($db, $post, "Gaming");
+// $post->removePost($db, $post);
 
 $role = new Role("troll","Quelqu'un qui trolle");
 echo "<pre>";
 print_r($role);
 echo "<pre>";
-$role->addRole($db, $role);
-$role->removeRole($db, $role);
+// $role->addRole($db, $role);
+// $role->removeRole($db, $role);
 
-addRole($db,"Test", "Auteur");
-removeRole($db, "Test", "Auteur");
+// addRole($db,"Test", "Auteur");
+// removeRole($db, "Test", "Auteur");
+echo "<pre>";
+print_r(getAllUsers($db));
+echo "<pre>";
+
 ?>
